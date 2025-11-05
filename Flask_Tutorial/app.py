@@ -1,6 +1,9 @@
 from flask import Flask, render_template # pyright: ignore[reportMissingImports]
+from views import views
 
 app = Flask(__name__)
+app.register_blueprint(views, url_prefix="/")
+
 
 @app.route("/")
 def index():
@@ -35,9 +38,7 @@ My_Niranjan="Hello Niranjan"
 def mytemplate():
     return render_template("index.html", Varible=Articles, name=My_Niranjan)
 
-while True:
-    print(1)
-    break
+
 
 
 
