@@ -35,6 +35,10 @@ My_Niranjan="Hello Niranjan"
 def mytemplate():
     return render_template("index.html", Varible=Articles, name=My_Niranjan)
 
+while True:
+    print(1)
+    break
+
 
 
 if __name__== "__main__":
