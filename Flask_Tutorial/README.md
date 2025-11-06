@@ -1,2 +1,0 @@
-# PythonProjects
-Basic Python Projects 
