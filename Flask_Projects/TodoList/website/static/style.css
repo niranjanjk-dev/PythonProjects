@@ -151,7 +151,7 @@ textarea {
     transition: all 0.3s ease; /* <-- Add this line for a smooth glow */
 }
 textarea {
-    min-height: 150px;
+    min-height: 140px;
     resize: vertical;
 }
 
