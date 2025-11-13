@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Our Gallery{% endblock %}
+
+{% block content %}
+
+<div class="text-center mb-5">
+    <h1 class="fw-bold display-5" style="color: var(--accent-color);">My Collection ✨</h1>
+    <p class="text-muted lead">A glimpse into my soft and dreamy world.</p>
+</div>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+    <div class="col">
+        <div class="gallery-card">
+            <img src="https://picsum.photos/id/1018/400/300" class="card-img-top" alt="Image">
+            <div class="card-body">
+                <h5 class="card-title fw-bold" style="color: var(--accent-color);">Sweet Adventures</h5>
+                <p class="card-text">Embark on a journey through candy-colored landscapes and charm.</p>
+                <span class="badge rounded-pill bg-light text-dark border">#travel</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="gallery-card">
+            <img src="https://picsum.photos/id/319/400/300" class="card-img-top" alt="Image">
+            <div class="card-body">
+                <h5 class="card-title fw-bold" style="color: var(--accent-color);">Coffee Breaks</h5>
+                <p class="card-text">Quiet moments with a warm cup and a view of the city skyline.</p>
+                <span class="badge rounded-pill bg-light text-dark border">#relax</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="gallery-card">
+            <img src="https://picsum.photos/id/1020/400/300" class="card-img-top" alt="Image">
+            <div class="card-body">
+                <h5 class="card-title fw-bold" style="color: var(--accent-color);">Starry Nights</h5>
+                <p class="card-text">Gazing up at the infinite universe and dreaming big dreams.</p>
+                <span class="badge rounded-pill bg-light text-dark border">#dreams</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="gallery-card">
+            <img src="https://picsum.photos/id/1015/400/300" class="card-img-top" alt="Image">
+            <div class="card-body">
+                <h5 class="card-title fw-bold" style="color: var(--accent-color);">River Flows</h5>
+                <p class="card-text">The gentle sound of water flowing through the peaceful forest.</p>
+                <span class="badge rounded-pill bg-light text-dark border">#nature</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="gallery-card">
+            <img src="https://picsum.photos/id/1025/400/300" class="card-img-top" alt="Image">
+            <div class="card-body">
+                <h5 class="card-title fw-bold" style="color: var(--accent-color);">Paws & Play</h5>
+                <p class="card-text">Our furry little friends bringing joy to every single day.</p>
+                <span class="badge rounded-pill bg-light text-dark border">#pets</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="gallery-card">
+            <img src="https://picsum.photos/id/1016/400/300" class="card-img-top" alt="Image">
+            <div class="card-body">
+                <h5 class="card-title fw-bold" style="color: var(--accent-color);">Mountain Highs</h5>
+                <p class="card-text">Climbing to the top and seeing the world from a new angle.</p>
+                <span class="badge rounded-pill bg-light text-dark border">#adventure</span>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+
+{% endblock %}
+
+{% block floating_button %}  <a href="{{ url_for('views.add_content') }}" class="btn-floating">
+    <i class="fa-solid fa-plus"></i>
+</a>
+{% endblock %}

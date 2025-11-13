@@ -1,15 +1,19 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
-auth = Blueprint("auth",__name__)
+# Define the blueprint
+auth = Blueprint("auth", __name__)
 
 @auth.route("/login")
 def login():
-    return "<h1>Login</h1>"
+    # Renders your toggle login/signup card
+    return render_template("auth.html")
+
+@auth.route("/sign-up")
+def sign_up():
+    # Since your auth.html has a toggle, it serves both login and signup
+    return render_template("auth.html")
 
 @auth.route("/logout")
 def logout():
-    return "<h1>Logout</h1>"
-
-@auth.route("/sign-up")
-def signup():
-    return "<h1>SignUp</h1>"
+    # For now, just redirect to login or home
+    return render_template("auth.html")

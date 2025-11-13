@@ -1,0 +1,305 @@
+/* --- GLOBAL VARIABLES --- */
+:root {
+    --primary-color: #ff9a9e;
+    --secondary-color: #fad0c4;
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.9);
+    --text-color: #555;
+    --accent-color: #6a11cb;
+}
+
+/* --- BODY & WALLPAPER --- */
+body {
+    font-family: 'Nunito', sans-serif;
+    color: var(--text-color);
+    /* Cute Gradient + Polka Dot Pattern */
+    background-image: radial-gradient(#ffffff 15%, transparent 16%), radial-gradient(#ffffff 15%, transparent 16%);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    background-color: #ffdde1; 
+    background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); /* Pastel Purple/Blue */
+    min-height: 100vh;
+    cursor: none; /* Hide default cursor */
+    overflow-x: hidden;
+}
+
+/* --- CUSTOM CURSOR --- */
+.cursor-dot,
+.cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: white;
+}
+
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 2px solid white;
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+/* Hover effect for the cursor */
+body:has(a:hover) .cursor-outline,
+body:has(button:hover) .cursor-outline {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: transparent;
+}
+
+/* --- NAVBAR (Glassmorphism) --- */
+.navbar {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-radius: 0 0 20px 20px;
+    padding: 15px 20px;
+}
+
+.navbar-brand {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--accent-color) !important;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    font-weight: 600;
+    color: #555 !important;
+    margin: 0 10px;
+    transition: transform 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--accent-color) !important;
+    transform: translateY(-2px);
+}
+
+/* --- CUTE BUTTONS --- */
+.btn-cute {
+    background: linear-gradient(to right, #ff9a9e 0%, #fecfef 100%);
+    border: none;
+    color: white;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(255, 154, 158, 0.3);
+    transition: transform 0.2s;
+}
+
+.btn-cute:hover {
+    transform: scale(1.05);
+    color: white;
+}
+
+/* --- MAIN CONTAINER --- */
+.main-container {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    margin-bottom: 50px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+
+/* --- BIGGER & CUTER AUTH CARD --- */
+.auth-card {
+    background: rgba(255, 255, 255, 0.75); /* Slightly more opaque */
+    backdrop-filter: blur(20px);
+    border: 3px solid white; /* Thicker border */
+    border-radius: 50px; /* Much rounder corners */
+    padding: 60px; /* More internal space */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); /* Deeper shadow */
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- BIGGER TOGGLE SWITCH --- */
+.toggle-box {
+    width: 300px; /* Wider */
+    height: 60px; /* Taller */
+    margin: 0 auto 40px;
+    position: relative;
+    border-radius: 50px;
+    background: white;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+/* Clickable Buttons */
+.toggle-option {
+    padding: 10px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+    z-index: 1;
+    font-weight: 800; /* Thicker text */
+    font-size: 1.1rem; /* Larger text */
+    color: #888;
+    transition: color 0.5s;
+    width: 50%;
+    text-align: center;
+}
+
+/* The Sliding Pill (Pink Background) */
+#btn {
+    top: 5px;
+    left: 5px;
+    position: absolute;
+    width: 145px; /* Wider pill to fit the wider box */
+    height: 50px; /* Taller pill */
+    background: linear-gradient(to right, #ff9a9e, #fecfef);
+    border-radius: 50px;
+    transition: .5s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Bouncy effect! */
+    box-shadow: 0 4px 15px rgba(255, 154, 158, 0.5);
+}
+
+/* --- CHUNKY INPUT FIELDS --- */
+.cute-input {
+    border-radius: 30px !important; /* Force rounded */
+    background: #fdfdfd;
+    border: 2px solid #eee; /* Thicker border */
+    padding: 15px 25px; /* More internal space */
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.cute-input:focus {
+    background: white;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(255, 154, 158, 0.3);
+    color: var(--accent-color);
+    transform: translateY(-3px); /* Slight lift on focus */
+}
+
+/* --- ANIMATIONS --- */
+.form-group-container {
+    animation: fadeUp 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+
+/* --- GALLERY CARDS (Glassmorphism + Hover Effect) --- */
+.gallery-card {
+    background: rgba(255, 255, 255, 0.6); /* Slightly more transparent glass */
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 25px; /* Rounded corners */
+    overflow: hidden; /* Ensures image corners match card */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex; /* Make card content a flex container */
+    flex-direction: column; /* Stack image and body */
+    height: 100%; /* Ensure cards in a row have equal height */
+}
+
+.gallery-card:hover {
+    transform: translateY(-10px) scale(1.02); /* Floats up and slightly bigger */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+}
+
+.gallery-card .card-img-top {
+    width: 100%;
+    height: 200px; /* Fixed height for consistent image size */
+    object-fit: cover; /* Crops images nicely */
+    border-top-left-radius: 25px; /* Match card radius */
+    border-top-right-radius: 25px; /* Match card radius */
+}
+
+.gallery-card .card-body {
+    padding: 25px;
+    flex-grow: 1; /* Allow body to take up remaining height */
+}
+
+.gallery-card .card-title {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.gallery-card .card-text {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Adjust button inside card */
+.gallery-card .btn-cute {
+    align-self: flex-start; /* Aligns button to the left */
+    font-size: 0.9rem;
+    padding: 6px 15px;
+}
+
+
+/* --- FLOATING ACTION BUTTON (FAB) --- */
+/* --- FLOATING ACTION BUTTON (FAB) --- */
+.btn-floating {
+    position: fixed; /* Pins to the screen, not the page */
+    bottom: 50px;    /* Height from bottom of screen */
+    left: 50%;       /* Center horizontal */
+    transform: translateX(-50%); /* Perfect centering */
+    
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    
+    /* Gradient Background */
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    
+    /* Visuals */
+    border: 3px solid white;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    
+    /* Flexbox to center the icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Text/Icon Style */
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+    
+    /* THE IMPORTANT PART: Force it to the very top layer */
+    z-index: 9999 !important; 
+    
+    transition: all 0.3s ease;
+}
+
+.btn-floating:hover {
+    transform: translateX(-50%) scale(1.1);
+    color: white;
+    box-shadow: 0 10px 25px rgba(255, 154, 158, 0.8);
+}

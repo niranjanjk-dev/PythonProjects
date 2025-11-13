@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Login / Sign Up{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center align-items-center" style="min-height: 70vh;">
+    <div class="col-md-8 col-lg-6">
+        
+        <div class="auth-card">
+            
+            <div class="toggle-box">
+                <div class="toggle-btn" id="btn"></div> 
+                <button type="button" class="toggle-option" onclick="login()">Sign In</button>
+                <button type="button" class="toggle-option" onclick="register()">Sign Up</button>
+            </div>
+
+            <div id="login-form" class="form-group-container">
+                <h2 class="text-center mb-4 fw-bold" style="color: var(--accent-color); font-size: 2.5rem;">Welcome Back! 🌸</h2>
+                <form>
+                    <div class="mb-4">
+                        <input type="email" class="form-control form-control-lg cute-input" placeholder="Email Address" required>
+                    </div>
+                    <div class="mb-4">
+                        <input type="password" class="form-control form-control-lg cute-input" placeholder="Password" required>
+                    </div>
+                    <div class="text-end mb-4">
+                        <a href="#" class="text-muted small text-decoration-none">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-cute w-100 py-3 fs-5">Let me in!</button>
+                </form>
+                
+                <div class="text-center mt-5">
+                    <p class="small text-muted">Or sign in with</p>
+                    <button class="btn btn-light rounded-circle shadow-sm mx-2 p-3"><i class="fab fa-google text-danger fa-lg"></i></button>
+                    <button class="btn btn-light rounded-circle shadow-sm mx-2 p-3"><i class="fab fa-facebook text-primary fa-lg"></i></button>
+                </div>
+            </div>
+
+            <div id="register-form" class="form-group-container" style="display: none;">
+                <h2 class="text-center mb-4 fw-bold" style="color: var(--accent-color); font-size: 2.5rem;">Join the Club! ✨</h2>
+                <form>
+                    <div class="mb-4">
+                        <input type="text" class="form-control form-control-lg cute-input" placeholder="Username" required>
+                    </div>
+                    <div class="mb-4">
+                        <input type="email" class="form-control form-control-lg cute-input" placeholder="Email Address" required>
+                    </div>
+                    <div class="mb-4">
+                        <input type="password" class="form-control form-control-lg cute-input" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-cute w-100 py-3 fs-5">Create Account</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
