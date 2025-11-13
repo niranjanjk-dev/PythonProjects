@@ -8,6 +8,11 @@ def login():
     # Renders your toggle login/signup card
     return render_template("auth.html")
 
+@auth.route("/")
+def base():
+    # Since your auth.html has a toggle, it serves both login and signup
+    return render_template("auth.html")
+
 @auth.route("/sign-up")
 def sign_up():
     # Since your auth.html has a toggle, it serves both login and signup

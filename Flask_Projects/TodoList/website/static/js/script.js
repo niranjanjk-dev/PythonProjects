@@ -51,3 +51,29 @@ document.addEventListener("DOMContentLoaded", function() {
         toggleOptions[0].style.color = "white";
     }
 });
+
+
+// --- DARK MODE LOGIC ---
+document.addEventListener("DOMContentLoaded", function() {
+    const toggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    // 1. Check if user previously selected dark mode
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-theme');
+        if(toggle) toggle.checked = true;
+    }
+
+    // 2. Listen for toggle click
+    if(toggle) {
+        toggle.addEventListener('change', function() {
+            if (this.checked) {
+                body.classList.add('dark-theme');
+                localStorage.setItem('theme', 'dark'); // Save preference
+            } else {
+                body.classList.remove('dark-theme');
+                localStorage.setItem('theme', 'light'); // Save preference
+            }
+        });
+    }
+});
