@@ -1,0 +1,41 @@
+<!-- {% extends "base.html" %}
+
+{% block title %}Add New Content{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center align-items-center" style="min-height: 70vh;">
+    <div class="col-md-8 col-lg-6">
+        
+        <div class="auth-card">
+            
+            <h2 class="text-center mb-4 fw-bold" style="color: var(--accent-color);">Add to Gallery 🎨</h2>
+            
+            <form action="{{ url_for('views.add_content') }}" method="POST">
+                
+                <div class="mb-4">
+                    <label class="fw-bold text-muted ms-2 mb-1">Title</label>
+                    <input type="text" name="title" class="form-control form-control-lg cute-input" placeholder="E.g., My dreamy trip..." required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="fw-bold text-muted ms-2 mb-1">Image URL</label>
+                    <input type="url" name="image" class="form-control form-control-lg cute-input" placeholder="https://example.com/image.jpg">
+                    <small class="text-muted ms-2">Leave empty for a random cute image!</small>
+                </div>
+
+                <div class="mb-4">
+                    <label class="fw-bold text-muted ms-2 mb-1">Description</label>
+                    <textarea name="desc" class="form-control form-control-lg cute-input" rows="3" placeholder="Tell us something sweet..." required></textarea>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <a href="{{ url_for('gallery') }}" class="btn btn-outline-secondary w-50 py-3 rounded-pill fw-bold">Cancel</a>
+                    <button type="submit" class="btn btn-cute w-50 py-3 fs-5">Add Content ✨</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %} -->
