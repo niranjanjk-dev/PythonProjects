@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Me 💌{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+
+    <div class="text-center mb-5 position-relative z-1">
+        <h1 class="fw-bold display-4 animate__animated animate__fadeInDown" style="color: var(--accent-color);">
+            Let's Connect! 💖
+        </h1>
+        <p class="lead text-muted animate__animated animate__fadeInUp animate__delay-0.5s">
+            Have a question, an idea, or just want to say hi? My inbox is always open!
+        </p>
+    </div>
+
+    <div class="row g-5">
+        
+        <div class="col-lg-7 animate__animated animate__fadeInLeft animate__delay-1s">
+            <div class="auth-card p-5 h-100">
+                <h3 class="fw-bold mb-4" style="color: #ff9a9e;">Send a Message ✉️</h3>
+                
+                <form action="#" method="POST">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <label class="small fw-bold text-muted ms-2 mb-1">Your Name</label>
+                            <input type="text" class="form-control cute-input" placeholder="Friendly Stranger">
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <label class="small fw-bold text-muted ms-2 mb-1">Your Email</label>
+                            <input type="email" class="form-control cute-input" placeholder="name@example.com">
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="small fw-bold text-muted ms-2 mb-1">Subject</label>
+                        <select class="form-select cute-input" style="cursor: pointer;">
+                            <option>Just saying Hi! 👋</option>
+                            <option>Project Inquiry 🚀</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="small fw-bold text-muted ms-2 mb-1">Message</label>
+                        <textarea class="form-control cute-input" rows="5" placeholder="Write your sweet message here..."></textarea>
+                    </div>
+                    <button type="button" class="btn btn-cute w-100 py-3 fs-5 shadow-sm">
+                        Send Message <i class="fa-solid fa-paper-plane ms-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-lg-5 animate__animated animate__fadeInRight animate__delay-1.2s">
+            
+            <div class="auth-card p-4 mb-4 text-center position-relative overflow-hidden">
+                <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: var(--primary-color); opacity: 0.2; border-radius: 50%;"></div>
+                
+                <div class="position-relative d-inline-block mb-3">
+                    <img src="https://picsum.photos/id/64/150/150" class="rounded-circle border border-4 border-white shadow-sm" alt="Profile">
+                    <span class="position-absolute bottom-0 end-0 bg-success border border-white rounded-circle p-2" title="Online"></span>
+                </div>
+                
+                <h3 class="fw-bold" style="color: var(--accent-color);">Niranjan JK</h3>
+                <p class="text-muted mb-3">
+                    "Hello! I'm a Mechatronics student and developer who loves building things that are both functional and adorable."
+                </p>
+                <div class="d-flex justify-content-center gap-2 flex-wrap">
+                    <span class="badge rounded-pill bg-light text-dark border px-3 py-2">Mechatronics 🤖</span>
+                    <span class="badge rounded-pill bg-light text-dark border px-3 py-2">Python 🐍</span>
+                </div>
+            </div>
+
+            <h4 class="fw-bold mb-3 ms-2" style="color: var(--text-color);">Catch me on...</h4>
+            <div class="row g-3">
+                <div class="col-6">
+                    <a href="#" class="social-card linkedin-card">
+                        <i class="fa-brands fa-linkedin-in social-icon"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="#" class="social-card github-card">
+                        <i class="fa-brands fa-github social-icon"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="#" class="social-card insta-card">
+                        <i class="fa-brands fa-instagram social-icon"></i>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="#" class="social-card twitter-card">
+                        <i class="fa-brands fa-x-twitter social-icon"></i>
+                        <span>Twitter</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

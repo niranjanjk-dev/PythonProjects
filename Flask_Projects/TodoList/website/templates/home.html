@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome! ✨{% endblock %}
+
+{% block content %}
+<div class="homepage-content">
+    
+    <section class="hero-section text-center position-relative overflow-hidden">
+    <div class="hero-content z-1">
+        <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeInDown">
+            Your Magical World Awaits! 🌈
+        </h1>
+        <p class="lead mb-5 animate__animated animate__fadeInUp">
+            Explore a realm of creativity, cozy corners, and endless inspiration.
+        </p>
+        <a href="{{ url_for('views.gallery') }}" class="btn btn-cute btn-lg px-5 py-3 rounded-pill fs-5 shadow animate__animated animate__zoomIn">
+            Explore Gallery <i class="fa-solid fa-arrow-right ms-2"></i>
+        </a>
+    </div>
+    
+    <i class="fa-solid fa-heart hero-float float-slow" 
+       style="top: 10%; left: 10%; font-size: 50px; color: #ff9a9e;"></i>
+    
+    <i class="fa-solid fa-star hero-float float-fast delay-1" 
+       style="top: 25%; right: 8%; font-size: 40px; color: #ffd700;"></i>
+    
+    <i class="fa-solid fa-star hero-float float-medium delay-2" 
+       style="bottom: 15%; left: 15%; font-size: 30px; color: #8ec5fc;"></i>
+    
+    <i class="fa-solid fa-heart hero-float float-slow delay-3" 
+       style="bottom: 8%; right: 18%; font-size: 60px; color: #fad0c4;"></i>
+
+</section>
+
+    <section class="py-5 text-center my-5 animate__animated animate__fadeInUp">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="fw-bold mb-4" style="color: var(--accent-color);">What is this Cute App? 🌸</h2>
+                <p class="lead text-muted">
+                    This is your personal happy space! A place where you can collect, share, and find inspiration from beautiful images and heartwarming stories.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 my-5">
+        <h2 class="fw-bold text-center mb-5" style="color: var(--accent-color);">Magical Features ✨</h2>
+        <div class="row text-center g-4">
+            <div class="col-md-4 animate__animated animate__fadeInLeft">
+                <div class="feature-card p-4 rounded-4 shadow-sm">
+                    <i class="fa-solid fa-cloud-arrow-up feature-icon mb-3"></i>
+                    <h5 class="fw-bold mb-2">Easy Uploads</h5>
+                    <p class="text-muted small">Share your moments with a simple click.</p>
+                </div>
+            </div>
+            <div class="col-md-4 animate__animated animate__fadeInUp">
+                <div class="feature-card p-4 rounded-4 shadow-sm">
+                    <i class="fa-solid fa-globe feature-icon mb-3"></i>
+                    <h5 class="fw-bold mb-2">Explore & Discover</h5>
+                    <p class="text-muted small">Dive into a beautiful gallery filled with inspiration.</p>
+                </div>
+            </div>
+            <div class="col-md-4 animate__animated animate__fadeInRight">
+                <div class="feature-card p-4 rounded-4 shadow-sm">
+                    <i class="fa-solid fa-heart feature-icon mb-3"></i>
+                    <h5 class="fw-bold mb-2">Personalized Space</h5>
+                    <p class="text-muted small">Manage your profile and adjust settings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 text-center mt-5 animate__animated animate__fadeInUp">
+        <h2 class="fw-bold mb-4" style="color: var(--accent-color);">Ready for some magic?</h2>
+        <a href="{{ url_for('views.add_content') }}" class="btn btn-cute btn-lg px-5 py-3 rounded-pill fs-5 shadow">
+            Add Your First Memory <i class="fa-solid fa-plus ms-2"></i>
+        </a>
+    </section>
+
+</div>
+
+<div class="parallax-container">
+    <i class="fa-solid fa-heart parallax-element" data-speed="0.8" style="top: 10%; left: 5%; font-size: 60px; color: rgba(255, 154, 158, 0.4);"></i>
+    <i class="fa-solid fa-star parallax-element" data-speed="0.4" style="top: 25%; right: 10%; font-size: 40px; color: rgba(255, 215, 0, 0.4);"></i>
+    <i class="fa-solid fa-heart parallax-element" data-speed="1.2" style="top: 40%; left: 20%; font-size: 80px; color: rgba(142, 197, 252, 0.3);"></i>
+    <i class="fa-solid fa-star parallax-element" data-speed="0.6" style="bottom: 15%; right: 5%; font-size: 50px; color: rgba(255, 215, 0, 0.5);"></i>
+    <i class="fa-solid fa-wand-magic-sparkles parallax-element" data-speed="1" style="bottom: 5%; left: 15%; font-size: 70px; color: rgba(224, 195, 252, 0.5);"></i>
+</div>
+{% endblock %}
