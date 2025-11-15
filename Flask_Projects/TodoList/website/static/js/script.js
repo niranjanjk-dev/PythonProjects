@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // --- ✨ NEW: RANDOMIZE ICON POSITIONS (No Clustering) ✨ ---
+    // --- RANDOMIZE ICON POSITIONS (No Clustering) ---
     
     // Helper function to shuffle an array (Fisher-Yates)
     function shuffleArray(array) {
@@ -124,8 +124,6 @@ document.addEventListener("DOMContentLoaded", function() {
             const baseY = row * cellHeight;
 
             // 5. Add "jitter" (a random offset *within* the cell)
-            // This prevents a perfect grid look.
-            // (e.g., 8% jitter within a 16% wide cell)
             const jitterX = Math.random() * (cellWidth - 8) + 4; // Jitter between 4% and (width-4)%
             const jitterY = Math.random() * (cellHeight - 10) + 5; // Jitter between 5% and (height-5)%
 
@@ -148,6 +146,94 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Run the new function on page load
     randomizeFloatingIcons();
+
+
+    // --- ✨ CUSTOM DOT SCROLLBAR LOGIC ✨ ---
+    const dotsContainer = document.getElementById('scrollDots');
+    const scrollUpArrow = document.getElementById('scrollUpArrow');
+    const scrollDownArrow = document.getElementById('scrollDownArrow');
+    
+    // Check if the scrollbar elements exist on this page
+    if (dotsContainer && scrollUpArrow && scrollDownArrow) {
+        
+        // Link arrows to the function
+        scrollUpArrow.onclick = () => scrollPage('up');
+        scrollDownArrow.onclick = () => scrollPage('down');
+
+        // --- DYNAMIC DOTS LOGIC ---
+        const pageHeight = document.body.scrollHeight;
+        const viewportHeight = window.innerHeight;
+        
+        // Calculate how many "screens" high the page is
+        // Math.max(3, ...) ensures a minimum of 3 dots
+        // Math.min(10, ...) ensures a maximum of 10 dots
+        // Math.ceil rounds up (e.g., 2.3 screens = 3 dots)
+        const totalDots = Math.max(3, Math.min(10, Math.ceil(pageHeight / viewportHeight)));
+        
+        // **FIX 1: Create Dots ALWAYS (Moved out of 'if' block)**
+        // This ensures dots appear even on short pages.
+        for (let i = 0; i < totalDots; i++) {
+            const dot = document.createElement('div');
+                dot.classList.add('scroll-dot');
+                
+                dot.addEventListener('click', () => {
+                    const totalHeight = document.body.scrollHeight - window.innerHeight;
+                    const targetY = (i / (totalDots - 1)) * totalHeight; 
+                    window.scrollTo({ top: targetY, behavior: 'smooth' });
+                });
+            
+            dotsContainer.appendChild(dot);
+        }
+
+        // Only add scroll listener if the page is actually scrollable
+        if (pageHeight > viewportHeight) {
+            // Listen for scroll events
+            window.addEventListener('scroll', updateScrollDots, { passive: true });
+        }
+        // --- END DYNAMIC DOTS ---
+
+        // Update Active Dot on Scroll
+        function updateScrollDots() {
+            const dots = dotsContainer.querySelectorAll('.scroll-dot');
+            if (dots.length === 0) return;
+
+            const scrollTop = window.scrollY;
+            const docHeight = document.body.scrollHeight;
+            const winHeight = window.innerHeight;
+            
+            // --- FIX: Highlight MIDDLE dot on short pages ---
+            if (docHeight <= winHeight) {
+                // Find the middle index
+                const middleIndex = Math.floor(dots.length / 2);
+
+                dots.forEach((dot, index) => {
+                    // Toggle 'active' class based on middle index
+                    dot.classList.toggle('active', index === middleIndex);
+                });
+                return;
+            }
+            // --- END FIX ---
+
+            const scrollPercent = scrollTop / (docHeight - winHeight);
+            let activeIndex = Math.round(scrollPercent * (totalDots - 1));
+            
+            if (activeIndex < 0) activeIndex = 0;
+            if (activeIndex >= totalDots) activeIndex = totalDots - 1;
+
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === activeIndex);
+            });
+        }
+
+
+        // Listen for scroll events
+        window.addEventListener('scroll', updateScrollDots, { passive: true });
+        
+        // Run once on load to set the initial state
+        updateScrollDots();
+    }
+    // --- END OF MOVED SCROLLBAR LOGIC ---
+
 });
 
 
@@ -174,90 +260,23 @@ document.addEventListener('scroll', function() {
 */
 
 /* =========================================
-   6. CUSTOM DOT SCROLLBAR LOGIC
+   6. CUSTOM DOT SCROLLBAR LOGIC (MOVED)
    ========================================= */
 
 // 1. Scroll Arrow Click Functionality
 function scrollPage(direction) {
-    const scrollAmount = window.innerHeight * 0.8; // Scroll 80% of the screen
+    // **FIX 2: Changed to scroll to absolute top/bottom**
     if (direction === 'up') {
-        window.scrollBy({ top: -scrollAmount, behavior: 'smooth' });
+        // Scroll to the very top of the page
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-        window.scrollBy({ top: scrollAmount, behavior: 'smooth' });
+        // Scroll to the very bottom of the page
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     }
 }
 
 // 2. Generate Dots & Handle Active State
-document.addEventListener("DOMContentLoaded", () => {
-    const dotsContainer = document.getElementById('scrollDots');
-    const scrollUpArrow = document.getElementById('scrollUpArrow');
-    const scrollDownArrow = document.getElementById('scrollDownArrow');
-    
-    // Check if the scrollbar elements exist on this page
-    if (dotsContainer && scrollUpArrow && scrollDownArrow) {
-        
-        // Link arrows to the function
-        scrollUpArrow.onclick = () => scrollPage('up');
-        scrollDownArrow.onclick = () => scrollPage('down');
-
-        const totalDots = 8; // How many dots to represent the page?
-        
-        // Create Dots
-        for (let i = 0; i < totalDots; i++) {
-            const dot = document.createElement('div');
-            dot.classList.add('scroll-dot');
-            
-            // Allow clicking a dot to jump to that section
-            dot.addEventListener('click', () => {
-                const totalHeight = document.body.scrollHeight - window.innerHeight;
-                // For 8 dots, we have 7 segments (0-7)
-                const targetY = (i / (totalDots - 1)) * totalHeight; 
-                window.scrollTo({ top: targetY, behavior: 'smooth' });
-            });
-            
-            dotsContainer.appendChild(dot);
-        }
-
-        // Update Active Dot on Scroll
-        function updateScrollDots() {
-            const dots = dotsContainer.querySelectorAll('.scroll-dot');
-            if (dots.length === 0) return;
-
-            const scrollTop = window.scrollY;
-            const docHeight = document.body.scrollHeight;
-            const winHeight = window.innerHeight;
-            
-            // Handle edge case where document is not scrollable
-            if (docHeight <= winHeight) {
-                dots.forEach(dot => dot.classList.remove('active'));
-                dots[0].classList.add('active'); // Highlight first dot
-                return;
-            }
-
-            // Calculate percentage scrolled (0 to 1)
-            const scrollPercent = scrollTop / (docHeight - winHeight);
-            
-            // Map percentage to dot index (0 to 7)
-            let activeIndex = Math.round(scrollPercent * (totalDots - 1));
-            
-            // Safety checks
-            if (activeIndex < 0) activeIndex = 0;
-            if (activeIndex >= totalDots) activeIndex = totalDots - 1;
-
-            // Update classes
-            dots.forEach((dot, index) => {
-                if (index === activeIndex) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-        }
-
-        // Listen for scroll events
-        window.addEventListener('scroll', updateScrollDots, { passive: true });
-        
-        // Run once on load to set the initial state
-        updateScrollDots();
-    }
-});
+/* THIS SECTION IS NOW EMPTY. 
+   Its logic was moved into the listener in Section 3
+   to fix the bug.
+*/

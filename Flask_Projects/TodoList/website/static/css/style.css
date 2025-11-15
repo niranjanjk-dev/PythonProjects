@@ -721,12 +721,15 @@ html {
     scroll-behavior: smooth;
 }
 
-/* 2. SCROLL NAV CONTAINER (Positioned at bottom-right) */
+/* 2. SCROLL NAV CONTAINER (Positioned at CENTER-RIGHT) */
 .custom-scroll-nav {
     position: fixed;
-    right: 20px;
-    bottom: 30px; /* MOVED FROM TOP: 50% TO THE BOTTOM CORNER */
-    /* 'transform' rule removed */
+    /* CHANGED: Positioned on the right */
+    right: 20px; 
+    left: auto; /* Explicitly remove the left positioning */
+    top: 50%;
+    transform: translateY(-50%); 
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -772,6 +775,8 @@ html {
     flex-direction: column;
     gap: 12px;
     margin: 10px 0;
+    justify-content: center;
+    flex-grow: 1;
 }
 
 .scroll-dot {
