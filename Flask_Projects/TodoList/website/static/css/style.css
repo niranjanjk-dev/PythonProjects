@@ -6,16 +6,13 @@
     --secondary-color: #fad0c4;
     --glass-bg: rgba(255, 255, 255, 0.6);
     --glass-border: rgba(255, 255, 255, 0.9);
-    --text-color: #555;
+    --text-color: #6a5acd; /* Deep Muted Purple */
     --accent-color: #6a11cb;
 }
 
 body {
     font-family: 'Nunito', sans-serif;
     color: var(--text-color);
-    background-image: radial-gradient(#ffffff 15%, transparent 16%), radial-gradient(#ffffff 15%, transparent 16%);
-    background-size: 20px 20px;
-    background-position: 0 0, 10px 10px;
     background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
     min-height: 100vh;
     cursor: none;
@@ -25,8 +22,9 @@ body {
 footer {
     text-align: center;
     padding: 20px;
-    color: #666;
+    color: #9575cd;
     font-size: 0.9rem;
+    /* EDITED: Added z-index */
     position: relative;
     z-index: 10;
 }
@@ -35,16 +33,13 @@ footer {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
 /* =========================================
    2. CUSTOM CURSOR (SMOOTH CHERRY BLOSSOM)
    ========================================= */
-
-/* 1. HIDE DEFAULT CURSOR EVERYWHERE */
 html, body, * {
     cursor: none !important; 
 }
-
-/* 2. BASE CURSOR STYLES */
 .cursor-dot,
 .cursor-outline {
     position: fixed;
@@ -54,49 +49,36 @@ html, body, * {
     border-radius: 50%;
     z-index: 9999;
     pointer-events: none;
-    
-    /* CHANGED: Slower transition (0.5s) for that smooth "melting" color effect */
     transition: width 0.3s ease, 
                 height 0.3s ease, 
                 background-color 0.5s ease, 
                 border-color 0.5s ease, 
                 transform 0.3s ease;
 }
-
-/* --- DEFAULT STATE (On Colorful Background) --- */
 .cursor-dot {
     width: 8px;
     height: 8px;
     background-color: white;
 }
-
 .cursor-outline {
     width: 40px;
     height: 40px;
     border: 2px solid white;
     background-color: transparent;
 }
-
-/* --- CHERRY PINK STATE (On White Cards) --- */
-/* When entering white areas, slowly fade to Cherry Pink */
 body:not(.dark-theme):has(.auth-card:hover) .cursor-outline,
 body:not(.dark-theme):has(.main-container:hover) .cursor-outline,
 body:not(.dark-theme):has(.gallery-card:hover) .cursor-outline,
 body:not(.dark-theme):has(.navbar:hover) .cursor-outline {
-    border-color: #ff3366;      /* Bright Cherry Pink */
+    border-color: #ff3366;
     background-color: rgba(255, 51, 102, 0.05); 
 }
-
 body:not(.dark-theme):has(.auth-card:hover) .cursor-dot,
 body:not(.dark-theme):has(.main-container:hover) .cursor-dot,
 body:not(.dark-theme):has(.gallery-card:hover) .cursor-dot,
 body:not(.dark-theme):has(.navbar:hover) .cursor-dot {
-    background-color: #ff3366; /* Bright Cherry Pink */
+    background-color: #ff3366;
 }
-
-
-/* --- CLICKABLE HOVER STATE --- */
-/* Scale effect + Cherry color */
 body:has(a:hover) .cursor-outline,
 body:has(button:hover) .cursor-outline,
 body:has(.cute-input:hover) .cursor-outline,
@@ -106,13 +88,11 @@ body:has(.toggle-option:hover) .cursor-outline {
     background-color: rgba(255, 255, 255, 0.4); 
     border-color: transparent;
 }
-
 body:has(a:hover) .cursor-dot,
 body:has(button:hover) .cursor-dot,
 body:has(.cute-input:hover) .cursor-dot,
 body:has(.toggle-option:hover) .cursor-dot {
     transform: scale(1.8); 
-    /* Ensure the dot stays Cherry Pink if inside a card */
     background-color: currentColor; 
 }
 
@@ -123,9 +103,12 @@ body:has(.toggle-option:hover) .cursor-dot {
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--glass-border);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(255, 154, 158, 0.15); 
     border-radius: 0 0 0px 0px;
     padding: 15px 20px;
+    /* EDITED: Added z-index */
+    position: relative;
+    z-index: 1000;
 }
 .navbar-brand {
     font-weight: 800;
@@ -135,7 +118,7 @@ body:has(.toggle-option:hover) .cursor-dot {
 }
 .nav-link {
     font-weight: 600;
-    color: #555 !important;
+    color: #8e44ad !important;
     margin: 0 10px;
     transition: transform 0.3s;
 }
@@ -149,16 +132,17 @@ body:has(.toggle-option:hover) .cursor-dot {
     border-radius: 25px;
     padding: 40px;
     border: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(106, 17, 203, 0.1); 
     margin-bottom: 50px;
     animation: fadeIn 1s ease-in-out;
+    /* EDITED: Added z-index */
+    position: relative;
+    z-index: 10;
 }
 
 /* =========================================
    4. CUTE BUTTONS & FORMS
    ========================================= */
-
-   
 .btn-cute {
     background: linear-gradient(to right, #ff9a9e 0%, #fecfef 100%);
     border: none;
@@ -173,74 +157,59 @@ body:has(.toggle-option:hover) .cursor-dot {
     transform: scale(1.05);
     color: white;
 }
-
-/* Secondary / Cancel Button */
 .btn-cancel-action {
-    /* 1. Keep the soft Cream Background */
-    background: #ffffff; 
+    background: #fff5e6; 
     border: 2px solid #ffe0e6;
-    
-    /* 2. MAKE TEXT BIGGER & DARKER */
-    color: #880e4f !important; /* Deep Plum/Dark Pink for high contrast */
-    font-size: 1.3rem;         /* Increased font size */
-    font-weight: 900;          /* Extra Bold */
-    letter-spacing: 1px;       /* Slight spacing for readability */
-    
-    /* 3. Perfect Centering */
+    color: #880e4f !important; 
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    padding: 8px 20px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-
-    /* 4. Shape */
-    border-radius: 20px;
-    padding: 10px 30px;
-    transition: all 0.2s;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-radius: 20px; /* Added missing border-radius */
 }
-
 .btn-cancel-action:hover {
-    background: #ffffff;
-    color: #d4b8c4 !important; /* Slightly lighter pink on hover */
+    background: #ffe0e6; 
+    color: #ad1457 !important; 
     border-color: #ff9a9e;
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
-
-/* --- PERFECT CIRCLE SOCIAL BUTTONS --- */
 .social-login-btn {
-    width: 50px !important;  /* Fixed Width */
-    height: 50px !important; /* Fixed Height (Same as width) */
-    border-radius: 50% !important; /* Perfect Circle */
-    padding: 0 !important;   /* Remove padding that squashes it */
-    
-    /* Center the icon perfectly */
-    display: inline-flex;
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    border-radius: 50% !important;
+    aspect-ratio: 1 / 1 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    
-    /* Styling */
     background: white;
-    border: 2px solid #ffe0e6; /* Soft Pink Border */
+    border: 2px solid #ffe0e6;
     color: #555;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     transition: transform 0.2s ease;
-    margin: 0 10px; /* Space between buttons */
+    margin: 0 8px;
+    cursor: pointer;
 }
-
 .social-login-btn:hover {
     transform: scale(1.1);
     border-color: #ff9a9e;
+    background: #fff0f5;
     box-shadow: 0 6px 15px rgba(255, 154, 158, 0.3);
 }
-
-
 .auth-card {
     background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(20px);
     border: 3px solid white;
     border-radius: 50px;
     padding: 60px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 50px rgba(142, 68, 173, 0.1);
     position: relative;
     overflow: hidden;
 }
@@ -251,7 +220,7 @@ body:has(.toggle-option:hover) .cursor-dot {
     position: relative;
     border-radius: 50px;
     background: white;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    box-shadow: inset 0 0 10px rgba(255, 182, 193, 0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -267,7 +236,7 @@ body:has(.toggle-option:hover) .cursor-dot {
     z-index: 1;
     font-weight: 800;
     font-size: 1.1rem;
-    color: #888;
+    color: #b39ddb; 
     transition: color 0.5s;
     width: 50%;
     text-align: center;
@@ -285,12 +254,14 @@ body:has(.toggle-option:hover) .cursor-dot {
 }
 .cute-input {
     border-radius: 30px !important;
-    background: #fdfdfd;
-    border: 2px solid #eee;
+    background: #fff9fa;
+    border: 2px solid #f8cdda;
     padding: 15px 25px;
     font-size: 1.1rem;
     transition: all 0.3s;
+    color: #886090;
 }
+.cute-input::placeholder { color: #d4b9da; }
 .cute-input:focus {
     background: white;
     border-color: var(--primary-color);
@@ -298,14 +269,13 @@ body:has(.toggle-option:hover) .cursor-dot {
     color: var(--accent-color);
     transform: translateY(-3px);
 }
+.text-muted { color: #9fa8da !important; }
+.small { color: #b39ddb !important; }
 
 /* =========================================
    5. HOMEPAGE STYLES
    ========================================= */
-.homepage-content {
-    position: relative;
-    z-index: 10;
-}
+.homepage-content { position: relative; z-index: 10; }
 .hero-section {
     min-height: 70vh;
     display: flex;
@@ -315,25 +285,19 @@ body:has(.toggle-option:hover) .cursor-dot {
     position: relative;
     padding: 100px 0;
 }
-.hero-content {
-    max-width: 800px;
-    margin: auto;
-}
+.hero-content { max-width: 800px; margin: auto; }
 .hero-section h1 {
     font-size: 3.8rem;
     line-height: 1.2;
     color: var(--accent-color);
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    text-shadow: 2px 2px 8px rgba(106, 17, 203, 0.1);
 }
-.hero-section p.lead {
-    font-size: 1.5rem;
-    color: var(--text-color);
-}
+.hero-section p.lead { font-size: 1.5rem; color: #7986cb; }
 .feature-card {
     background: rgba(255, 255, 255, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(10px);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 5px 20px rgba(255, 182, 193, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     min-height: 200px;
     display: flex;
@@ -344,13 +308,13 @@ body:has(.toggle-option:hover) .cursor-dot {
 }
 .feature-card:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 30px rgba(255, 154, 158, 0.3);
 }
 .feature-icon {
     font-size: 3rem;
     color: var(--accent-color);
     margin-bottom: 15px;
-    filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.1));
+    filter: drop-shadow(2px 2px 5px rgba(255, 105, 180, 0.2));
 }
 .parallax-container {
     position: fixed;
@@ -362,16 +326,8 @@ body:has(.toggle-option:hover) .cursor-dot {
     pointer-events: none;
     z-index: -1;
 }
-.parallax-element {
-    position: absolute;
-    opacity: 0.6;
-    filter: blur(1px);
-}
-.hero-float {
-    position: absolute;
-    z-index: 0;
-    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
-}
+.parallax-element { position: absolute; opacity: 0.6; filter: blur(1px); }
+.hero-float { position: absolute; z-index: 0; filter: drop-shadow(0 5px 15px rgba(106, 17, 203, 0.1)); }
 @keyframes float-vertical {
     0% { transform: translateY(0px); }
     100% { transform: translateY(-25px); }
@@ -387,12 +343,12 @@ body:has(.toggle-option:hover) .cursor-dot {
    6. GALLERY PAGE STYLES
    ========================================= */
 .gallery-card {
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(230, 230, 250, 0.9);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: 25px;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 20px rgba(106, 17, 203, 0.1);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
@@ -400,7 +356,7 @@ body:has(.toggle-option:hover) .cursor-dot {
 }
 .gallery-card:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 30px rgba(147, 112, 219, 0.25);
 }
 .gallery-card .card-img-top {
     width: 100%;
@@ -428,7 +384,7 @@ body:has(.toggle-option:hover) .cursor-dot {
     color: white;
     font-size: 30px;
     text-decoration: none;
-    z-index: 9999 !important;
+    z-index: 999; /* Below cursor, above content */
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .btn-floating:hover {
@@ -452,7 +408,7 @@ body:has(.toggle-option:hover) .cursor-dot {
     border-radius: 50%;
     border: 5px solid rgba(255, 255, 255, 0.5);
     object-fit: cover;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.2);
 }
 .edit-icon {
     position: absolute;
@@ -467,7 +423,7 @@ body:has(.toggle-option:hover) .cursor-dot {
     justify-content: center;
     color: #ff6a88;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
     transition: transform 0.2s;
 }
 .edit-icon:hover { transform: scale(1.1); }
@@ -476,7 +432,7 @@ body:has(.toggle-option:hover) .cursor-dot {
     height: 1.5em !important;
     cursor: pointer;
     border: none;
-    background-color: #ddd;
+    background-color: #ffcdd2;
     transition: background-color 0.3s;
 }
 .cute-switch:checked {
@@ -492,7 +448,7 @@ body:has(.toggle-option:hover) .cursor-dot {
     backdrop-filter: blur(15px);
     border-radius: 40px;
     border: 2px solid white;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(106, 17, 203, 0.05);
     transition: transform 0.3s ease;
 }
 .about-glass-card:hover { transform: translateY(-5px); }
@@ -503,8 +459,8 @@ body:has(.toggle-option:hover) .cursor-dot {
     background: white;
     border-radius: 25px;
     padding: 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    border: 2px solid #f0f0f0;
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.1);
+    border: 2px solid #ffebee;
     transition: all 0.3s ease;
 }
 .stat-box:hover {
@@ -537,13 +493,13 @@ body:has(.toggle-option:hover) .cursor-dot {
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
     height: 100%;
     min-height: 120px;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 15px rgba(106, 17, 203, 0.1);
     border: 2px solid rgba(255,255,255,0.2);
 }
 .social-card:hover {
     transform: translateY(-8px);
     color: white;
-    box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 25px rgba(255, 105, 180, 0.25);
 }
 .social-icon {
     font-size: 2.2rem;
@@ -561,128 +517,309 @@ body:has(.toggle-option:hover) .cursor-dot {
 }
 .email-card:hover { filter: brightness(1.05); }
 
-
 /* =========================================
-   10. DARK THEME (ULTIMATE VISIBILITY FIX)
+   10. DARK THEME (CUTE COLORS EDITION)
    ========================================= */
 body.dark-theme {
     background: linear-gradient(120deg, #2b1055 0%, #7597de 100%);
-    --text-color: #ffe6ea; /* Soft Pinkish-White */
+    --text-color: #ffe6ea;
     --accent-color: #ff9a9e;
 }
-
-/* 1. FORCE TEXT VISIBILITY (The "Nuclear" Option)
-   We target every standard text element and force it to be light.
-*/
-body.dark-theme,
 body.dark-theme p,
+body.dark-theme label,
 body.dark-theme span,
 body.dark-theme div,
-body.dark-theme li,
-body.dark-theme footer,
-body.dark-theme .card-text,  /* Fixes text inside cards */
-body.dark-theme .form-label, /* Fixes "Title", "Email" labels */
-body.dark-theme label {      /* Fixes generic labels */
-    color: #ffe6ea !important; 
+body.dark-theme li {
+    color: #ffe6ea; 
 }
-
-/* 2. SECONDARY/MUTED TEXT 
-   Bootstrap's "text-muted" is grey. We force it to Lilac.
-*/
 body.dark-theme .text-muted,
-body.dark-theme .small,
-body.dark-theme .form-text { 
-    color: #dcd0ff !important; 
-}
-
-/* 3. CONTAINERS & CARDS */
+body.dark-theme .small { color: #dcd0ff !important; }
 body.dark-theme .main-container,
 body.dark-theme .auth-card {
-    background: rgba(40, 30, 60, 0.75) !important;
+    background: rgba(40, 30, 60, 0.6);
     border: 1px solid rgba(255, 200, 255, 0.1);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    color: #ffe6ea !important; /* Force text inside to be light */
+    color: #ffe6ea;
 }
-
-/* 4. HEADINGS */
 body.dark-theme h1, 
 body.dark-theme h2, 
 body.dark-theme h3, 
 body.dark-theme h4, 
 body.dark-theme h5,
-body.dark-theme .h1, body.dark-theme .h2, body.dark-theme .h3,
 body.dark-theme .navbar-brand {
     color: #fff0f5 !important;
+    text-shadow: 0 0 10px rgba(255, 154, 158, 0.3);
 }
-
-/* 5. NAVBAR */
 body.dark-theme .navbar {
-    background: rgba(40, 30, 60, 0.9);
+    background: rgba(40, 30, 60, 0.85);
     border-bottom: 1px solid rgba(255, 200, 255, 0.1);
 }
 body.dark-theme .nav-link { color: #dcd0ff !important; }
 body.dark-theme .nav-link:hover { color: #ff9a9e !important; }
-
-/* 6. INPUTS (Making sure you can see what you type!) */
 body.dark-theme .cute-input,
-body.dark-theme .form-select,
-body.dark-theme textarea {
-    background-color: rgba(255, 255, 255, 0.05) !important;
+body.dark-theme .form-select {
+    background: rgba(255, 255, 255, 0.1) !important;
     border-color: rgba(255, 200, 255, 0.2) !important;
-    color: #ffe6ea !important; /* Input Text Color */
+    color: #ffe6ea !important;
 }
-body.dark-theme .cute-input::placeholder {
-    color: #dcd0ff !important; /* Placeholder Color */
-    opacity: 0.7;
-}
+body.dark-theme .cute-input::placeholder { color: #dcd0ff; }
 body.dark-theme .cute-input:focus { 
-    background-color: rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
     box-shadow: 0 0 15px rgba(255, 154, 158, 0.2);
 }
-
-/* 7. PAGE SPECIFIC FIXES */
+body.dark-theme .hero-section p.lead { color: #ffe6ea; }
 body.dark-theme .feature-card {
-    background: rgba(40, 30, 60, 0.8);
+    background: rgba(40, 30, 60, 0.7);
     border: 1px solid rgba(255, 200, 255, 0.1);
     box-shadow: 0 5px 20px rgba(0,0,0,0.4);
 }
+body.dark-theme .feature-card h5 { color: #fff0f5; }
+body.dark-theme .feature-card p { color: #dcd0ff; }
 body.dark-theme .stat-box {
-    background: rgba(40, 30, 60, 0.9);
+    background: rgba(40, 30, 60, 0.8);
     border-color: rgba(255, 200, 255, 0.15);
     box-shadow: none;
 }
-body.dark-theme .team-card {
-    background: rgba(40, 30, 60, 0.8);
-    border-color: rgba(255, 200, 255, 0.1);
-}
+body.dark-theme .stat-box h2 { color: #fff !important; }
+body.dark-theme .stat-box p { color: #dcd0ff !important; }
 body.dark-theme .social-card {
     border-color: rgba(255, 200, 255, 0.2);
     opacity: 0.95;
 }
-
-/* Gallery Card Dark Mode */
+body.dark-theme .social-card:hover { opacity: 1; }
+body.dark-theme .team-card {
+    background: rgba(40, 30, 60, 0.8);
+    border-color: rgba(255, 200, 255, 0.1);
+}
+body.dark-theme .team-card h4 { color: #fff !important; }
 body.dark-theme .gallery-card {
-    background: rgba(60, 50, 90, 0.8); 
-    border-color: rgba(255, 255, 255, 0.1);
-    color: #ffe6ea;
+    background: rgba(60, 50, 90, 0.7);
+}
+body.dark-theme .badge {
+    background-color: rgba(255, 255, 255, 0.1) !important; 
+    color: #ffe6ea !important; 
+    border: 1px solid rgba(255, 200, 255, 0.3) !important;
 }
 
-/* Toggle Switch Text */
-body.dark-theme .toggle-option { color: #dcd0ff !important; }
-body.dark-theme .toggle-option:hover { color: #ffe6ea !important; }
+/* =========================================
+   11. FLOATING DECORATIONS
+   ========================================= */
+.floating-decorations-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1; 
+    overflow: hidden;
+}
 
-/* Button Borders */
-body.dark-theme .btn { border-color: transparent !important; }
-
-
-/* --- FIX BADGES IN DARK MODE --- */
-body.dark-theme .badge {
-    /* Change background from White to Dark Glass */
-    background-color: rgba(255, 255, 255, 0.1) !important; 
+.float-item {
+    position: absolute;
+    pointer-events: auto;
+    cursor: none !important;
+    opacity: 0.7;
+    transition: transform 0.3s ease, opacity 0.3s ease;
     
-    /* Change text from Black to Soft Pink */
-    color: #ffe6ea !important; 
-    
-    /* Add a cute glowing border */
-    border: 1px solid rgba(255, 200, 255, 0.3) !important;
+    /* UPDATED: All animations now use the CSS variable for duration */
+    animation-name: var(--float-animation, floaty);
+    animation-duration: var(--float-speed, 8s); /* Default speed is 8s */
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
+
+.float-item:hover {
+    opacity: 1;
+    transform: scale(1.2) !important; /* Added !important to override floaty */
+    z-index: 5; /* Bring to front on hover */
+}
+
+/* REMOVED: .float-slow, .float-medium, .float-fast (JS handles this) */
+
+/* Animations */
+@keyframes floaty {
+    from { transform: translateY(0px) rotate(-5deg); }
+    to   { transform: translateY(-20px) rotate(5deg); }
+}
+
+/* NEW: Side-to-side animation */
+@keyframes floaty-side-to-side {
+    from { transform: translate(0px, -10px) rotate(-5deg); }
+    to   { transform: translate(20px, 10px) rotate(5deg); }
+}
+
+/* NEW: Class to use the side-to-side animation */
+.float-side-to-side {
+    --float-animation: floaty-side-to-side;
+}
+
+.glow-pulse {
+    /* UPDATED: Uses CSS variables for speed */
+    animation: var(--float-animation, floaty) var(--float-speed, 5s) ease-in-out infinite alternate, 
+               glowing 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowing {
+    from { filter: drop-shadow(0 0 2px currentColor); }
+    to   { filter: drop-shadow(0 0 10px currentColor); }
+}
+
+.is-wiggling {
+    animation: wiggle 0.4s ease-in-out !important;
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-15deg) scale(1.1); }
+    50% { transform: rotate(15deg) scale(1.1); }
+    75% { transform: rotate(-15deg) scale(1.1); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Theme Logic */
+.theme-sun { color: #ffc107; }
+.theme-moon { color: #e6e6fa; }
+.theme-star { color: #fdd835; }
+.theme-heart { color: #ff9a9e; }
+.theme-cloud { color: #ecf0f1; }
+.theme-rainbow { color: #a29bfe; }
+/* NEW: Sparkle color */
+.theme-sparkle { color: #fdfdb8; }
+
+/* Light/Dark Mode Swapping */
+body:not(.dark-theme) .theme-moon { display: none; }
+body.dark-theme .theme-sun { display: none; } 
+
+/* Dark Mode Color Overrides */
+body.dark-theme .float-item { opacity: 0.5; }
+body.dark-theme .theme-cloud { color: rgba(255, 255, 255, 0.1) !important; }
+body.dark-theme .theme-heart { color: #ff6b81 !important; }
+body.dark-theme .theme-rainbow { opacity: 0.4; }
+/* NEW: Sparkle color in dark mode */
+body.dark-theme .theme-sparkle { color: #fff; opacity: 0.7; }
+
+
+
+/* ... all your existing code (Sections 1-11) ... */
+
+body.dark-theme .theme-rainbow { opacity: 0.4; }
+body.dark-theme .theme-sparkle { color: #fff; opacity: 0.7; }
+
+/* =========================================
+   12. CUSTOM DOT SCROLLBAR & HIDDEN NATIVE BAR
+   ========================================= */
+
+/* 1. HIDE NATIVE BROWSER SCROLLBAR */
+::-webkit-scrollbar {
+    display: none;
+}
+html {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+/* 2. SCROLL NAV CONTAINER (Positioned at bottom-right) */
+.custom-scroll-nav {
+    position: fixed;
+    right: 20px;
+    bottom: 30px; /* MOVED FROM TOP: 50% TO THE BOTTOM CORNER */
+    /* 'transform' rule removed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    z-index: 1002;
+    padding: 15px 8px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+/* 3. ARROWS */
+.scroll-arrow {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: white;
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.scroll-arrow:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.2);
+}
+
+.scroll-arrow:active {
+    transform: scale(0.9);
+}
+
+/* 4. DOTS (NEW) */
+.scroll-dots-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 10px 0;
+}
+
+.scroll-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6); /* Inactive color */
+    border: 1px solid rgba(0,0,0,0.05);
+    cursor: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Active Dot (Current Position) */
+.scroll-dot.active {
+    width: 14px;
+    height: 14px;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); /* Cute Pink */
+    box-shadow: 0 0 10px rgba(255, 154, 158, 0.6);
+    transform: scale(1.2);
+    border: none;
+}
+
+.scroll-dot:hover {
+    background: #ff9a9e;
+    transform: scale(1.1);
+}
+
+/* --- DARK MODE SUPPORT (NEW) --- */
+body.dark-theme .custom-scroll-nav {
+    background: rgba(40, 30, 60, 0.6);
+    border-color: rgba(255, 200, 255, 0.1);
+}
+
+body.dark-theme .scroll-arrow {
+    background: rgba(255, 255, 255, 0.1);
+    color: #e6e6fa;
+}
+
+body.dark-theme .scroll-arrow:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+body.dark-theme .scroll-dot {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+}
+
+body.dark-theme .scroll-dot.active {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
 }

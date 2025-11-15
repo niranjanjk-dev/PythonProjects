@@ -17,36 +17,33 @@
     <div class="cursor-outline" data-cursor-outline></div>
 
     <!-- ===== FLOATING DECORATIONS ===== -->
-    <div class="floating-decorations">
-        <!-- Wiggles on Press -->
-        <i class="fa-solid fa-cloud float-icon float-medium wiggle-on-press" 
-           style="top: 10%; left: 5%; font-size: 40px; color: #f0f8ff;"></i>
+    <div class="floating-decorations-container">
         
-        <!-- Glows -->
-        <i class="fa-solid fa-star float-icon float-fast glow-effect" 
-           style="top: 20%; left: 80%; font-size: 25px; color: #ffd700;"></i>
-        
-        <!-- Just Floats -->
-        <i class="fa-solid fa-heart float-icon float-slow" 
-           style="top: 50%; left: 15%; font-size: 30px; color: #ff9a9e;"></i>
-        
-        <!-- Light Mode Only (Sun) -->
-        <i class="fa-solid fa-sun float-icon float-medium glow-effect sun-icon" 
-           style="top: 70%; left: 90%; font-size: 40px; color: #ffc107;"></i>
-        
-        <!-- Dark Mode Only (Moon) -->
-        <i class="fa-solid fa-moon float-icon float-medium glow-effect moon-icon" 
-           style="top: 70%; left: 90%; font-size: 40px; color: #e6e6fa;"></i>
-        
-        <!-- Wiggles on Press -->
-        <i class="fa-solid fa-cloud float-icon float-fast wiggle-on-press" 
-           style="top: 85%; left: 10%; font-size: 25px; color: #f0f8ff;"></i>
-           
-        <!-- Just Floats -->
-        <i class="fa-solid fa-rainbow float-icon float-slow" 
-           style="top: 30%; left: 20%; font-size: 35px; color: #8ec5fc;"></i>
+        <!-- === WIGGLES ON PRESS === -->
+        <i class="fa-solid fa-cloud float-item theme-cloud wiggle-on-press"></i>
+        <i class="fa-solid fa-heart float-item theme-heart wiggle-on-press"></i>
+        <i class="fa-solid fa-cloud float-item theme-cloud wiggle-on-press"></i>
+        <i class="fa-solid fa-heart float-item theme-heart wiggle-on-press float-side-to-side"></i>
+
+        <!-- === GLOWS (Sun/Moon/Stars) === -->
+        <i class="fa-solid fa-star float-item theme-star glow-pulse"></i>
+        <i class="fa-solid fa-sun float-item theme-sun glow-pulse"></i>
+        <i class="fa-solid fa-moon float-item theme-moon glow-pulse"></i>
+        <i class="fa-solid fa-star float-item theme-star glow-pulse"></i>
+        <i class="fa-solid fa-wand-magic-sparkles float-item theme-sparkle glow-pulse"></i>
+         <i class="fa-solid fa-star float-item theme-star glow-pulse float-side-to-side"></i>
+
+        <!-- === JUST FLOATS (Hearts/Rainbows/Etc) === -->
+        <i class="fa-solid fa-heart float-item theme-heart"></i>
+        <i class="fa-solid fa-rainbow float-item theme-rainbow"></i>
+        <i class="fa-solid fa-heart float-item theme-heart"></i>
+        <i class="fa-solid fa-cloud float-item theme-cloud float-side-to-side"></i>
+        <i class="fa-solid fa-wand-magic-sparkles float-item theme-sparkle"></i>
+        <i class="fa-solid fa-star float-item theme-star"></i>
+
     </div>
-    <!-- ================================== -->
+    <!-- ============================================== -->
+
     
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid px-4"> 
@@ -55,14 +52,16 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items: center">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                     <li class="nav-item ms-3 d-none d-lg-block"><span class="text-muted">|</span></li>
                     <li class="nav-item ms-3"><a class="nav-link" href="#">Sign Up</a></li>
-                    <li class="nav-item ms-2"><a class="btn btn-cute" href="#"><i class="fa-solid fa-user me-1"></i> Sign In</a></li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-cute" href="#"><i class="fa-solid fa-user me-1"></i> Sign In</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -79,14 +78,32 @@
                     {% endfor %}
                 {% endif %}
             {% endwith %}
+
             {% block content %}{% endblock %}
         </div>
     </div>
     
     {% block floating_button %}{% endblock %}
 
+    <!-- ===== CUSTOM DOT SCROLLBAR ===== -->
+    <div class="custom-scroll-nav" id="customScrollNav">
+        <!-- Up Arrow -->
+        <div class="scroll-arrow scroll-up" id="scrollUpArrow">
+            <i class="fa-solid fa-chevron-up"></i>
+        </div>
+
+        <!-- The Dots Container (JS will fill this) -->
+        <div class="scroll-dots-container" id="scrollDots"></div>
+
+        <!-- Down Arrow -->
+        <div class="scroll-arrow scroll-down" id="scrollDownArrow">
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </div>
+    <!-- ===================================== -->
+
     <footer>
-        <!-- Footer content can go here -->
+        <!-- Footer content goes here -->
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
