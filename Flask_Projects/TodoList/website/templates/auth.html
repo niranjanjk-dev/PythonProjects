@@ -31,8 +31,14 @@
                 
                 <div class="text-center mt-5">
                     <p class="small text-muted">Or sign in with</p>
-                    <button class="btn btn-light rounded-circle shadow-sm mx-2 p-3"><i class="fab fa-google text-danger fa-lg"></i></button>
-                    <button class="btn btn-light rounded-circle shadow-sm mx-2 p-3"><i class="fab fa-facebook text-primary fa-lg"></i></button>
+                    
+                    <button type="button" class="social-login-btn">
+                        <i class="fab fa-google text-danger"></i>
+                    </button>
+                    
+                    <button type="button" class="social-login-btn">
+                        <i class="fab fa-facebook text-primary"></i>
+                    </button>
                 </div>
             </div>
 
@@ -47,6 +53,9 @@
                     </div>
                     <div class="mb-4">
                         <input type="password" class="form-control form-control-lg cute-input" placeholder="Password" required>
+                    </div>
+                    <div class="mb-4">
+                        <input type="password" class="form-control form-control-lg cute-input" placeholder="Confirm Password" required>
                     </div>
                     <button type="submit" class="btn btn-cute w-100 py-3 fs-5">Create Account</button>
                 </form>
