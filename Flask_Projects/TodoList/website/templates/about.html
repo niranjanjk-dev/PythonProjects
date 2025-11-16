@@ -5,6 +5,7 @@
 {% block content %}
 <div class="about-container position-relative">
 
+    <!-- 1. Header Section -->
     <div class="text-center mb-5 position-relative z-1">
         <h1 class="fw-bold display-4 animate__animated animate__fadeInDown" style="color: var(--accent-color);">
             Behind the Magic ✨
@@ -14,12 +15,14 @@
         </p>
     </div>
 
+    <!-- 2. Story Section (Glass Card) -->
     <div class="row justify-content-center mb-5">
         <div class="col-lg-10">
             <div class="about-glass-card p-5 animate__animated animate__fadeInUp" style="animation-delay: 1s;">
                 <div class="row align-items-center">
                     <div class="col-md-6 mb-4 mb-md-0 text-center">
-                        <img src="https://picsum.photos/seed/aboutstory/400/400" alt="My Story" class="img-fluid rounded-circle shadow-lg about-img">
+                        <!-- FIXED: Using picsum.photos for a random image -->
+                        <img src="https://picsum.photos/seed/aboutstory/400/400" alt="My Story" class="img-fluid rounded-circle shadow-lg border-white-thick about-img">
                     </div>
                     <div class="col-md-6">
                         <h3 class="fw-bold mb-3" style="color: #ff9a9e;">Our Little Story 📖</h3>
@@ -35,14 +38,18 @@
         </div>
     </div>
 
+    <!-- 3. Fun Stats Section (UPDATED) -->
     <div class="row g-4 text-center mb-5 animate__animated animate__fadeInUp" style="animation-delay: 1.5s;">
+        <!-- LIKES RECEIVED -->
         <div class="col-md-4">
             <div class="stat-box">
+                <!-- FIXED: Changed icon from 'fa-heart-pulse' to 'fa-heart' -->
                 <i class="fa-solid fa-heart stat-icon text-danger"></i>
                 <h2 class="fw-bold mt-2 counter">1.2k+</h2>
                 <p class="small text-lavender-soft">Likes Received</p>
             </div>
         </div>
+        <!-- PROFILE VIEWS -->
         <div class="col-md-4">
             <div class="stat-box">
                 <i class="fa-solid fa-eye stat-icon text-info"></i>
@@ -50,6 +57,7 @@
                 <p class="small text-lavender-soft">Profile Views</p>
             </div>
         </div>
+        <!-- LINES OF CODE -->
         <div class="col-md-4">
             <div class="stat-box">
                 <i class="fa-solid fa-code stat-icon text-primary"></i>
@@ -59,6 +67,7 @@
         </div>
     </div>
 
+    <!-- 4. Creator Profile Card -->
     <div class="text-center mt-5 pt-4">
         <h2 class="fw-bold mb-5" style="color: var(--accent-color);">Meet the Dreamer 🌙</h2>
         
@@ -66,6 +75,7 @@
             <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn" style="animation-delay: 2s;">
                 <div class="team-card">
                     <div class="team-img-wrapper">
+                        <!-- FIXED: Using picsum.photos for a random profile image -->
                         <img src="https://picsum.photos/seed/aboutprofile/300/300" class="team-img" alt="Team Member">
                     </div>
                     <h4 class="fw-bold mt-4">Niranjan JK</h4>
@@ -82,6 +92,11 @@
             </div>
         </div>
     </div>
+
+    <!-- Background floating icons (unchanged) -->
+    <i class="fa-solid fa-cloud hero-float float-slow" style="top: 5%; left: 5%; font-size: 80px; color: white; opacity: 0.5;"></i>
+    <i class="fa-solid fa-star hero-float float-fast" style="top: 20%; right: 10%; font-size: 40px; color: #ffd700;"></i>
+    <i class="fa-solid fa-heart hero-float float-medium" style="bottom: 10%; left: 15%; font-size: 50px; color: #ff9a9e;"></i>
 
 </div>
 {% endblock %}

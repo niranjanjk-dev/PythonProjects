@@ -3,21 +3,26 @@
 {% block title %}My Profile{% endblock %}
 
 {% block content %}
-<div class="row justify-content-center" style="min-height: 80vh;">
+<!-- Removed the min-height style from the row -->
+<div class="row justify-content-center">
     <div class="col-lg-10">
         
+        <!-- auth-card already fits content, but we'll shrink padding -->
         <div class="auth-card p-0 overflow-hidden">
             <div class="row g-0">
                 
-                <div class="col-md-4 profile-sidebar text-center p-5">
-                    <div class="position-relative d-inline-block mb-3">
+                <!-- LEFT SIDE: Reduced p-5 to p-4 -->
+                <div class="col-md-4 profile-sidebar text-center p-4">
+                    <!-- Reduced mb-3 to mb-2 -->
+                    <div class="position-relative d-inline-block mb-2">
                         <img src="https://picsum.photos/id/64/200/200" class="profile-img mb-3" alt="Profile">
                         <div class="edit-icon">
                             <i class="fa-solid fa-camera"></i>
                         </div>
                     </div>
                     <h3 class="fw-bold text-white mb-1">Niranjan JK</h3>
-                    <p class="text-white-50 mb-4">@mechatronics_wizard</p>
+                    <!-- Reduced mb-4 to mb-3 -->
+                    <p class="text-white-50 mb-3">@mechatronics_wizard</p>
                     
                     <div class="d-grid gap-2">
                         <button class="btn btn-light rounded-pill fw-bold text-muted">
@@ -26,12 +31,14 @@
                     </div>
                 </div>
 
-                <div class="col-md-8 p-5">
-                    <h2 class="fw-bold mb-4" style="color: var(--accent-color);">Settings ⚙️</h2>
+                <!-- RIGHT SIDE: Reduced p-5 to p-4 -->
+                <div class="col-md-8 p-4">
+                    <h2 class="fw-bold mb-3" style="color: var(--accent-color);">Settings ⚙️</h2>
                     
                     <form>
                         <h5 class="fw-bold text-muted mb-3"><i class="fa-regular fa-id-card me-2"></i>Account Info</h5>
-                        <div class="row mb-4">
+                        <!-- Reduced mb-4 to mb-3 -->
+                        <div class="row mb-3">
                             <div class="col-md-6 mb-3">
                                 <label class="small fw-bold text-muted ms-2">Full Name</label>
                                 <input type="text" class="form-control cute-input" value="Niranjan JK">
@@ -42,15 +49,17 @@
                             </div>
                             <div class="col-12">
                                 <label class="small fw-bold text-muted ms-2">Bio</label>
-                                <textarea class="form-control cute-input" rows="3">Building robots and writing code! 🤖✨</textarea>
+                                <textarea class="form-control cute-input" rows="2">Building robots and writing code! 🤖✨</textarea>
                             </div>
                         </div>
 
-                        <hr class="text-muted opacity-25 my-4">
+                        <!-- Reduced my-4 to my-3 -->
+                        <hr class="text-muted opacity-25 my-3">
 
                         <h5 class="fw-bold text-muted mb-3"><i class="fa-solid fa-paintbrush me-2"></i>Appearance</h5>
                         
-                        <div class="d-flex justify-content-between align-items-center mb-4 p-3 rounded-4" style="background: rgba(0,0,0,0.03);">
+                        <!-- Reduced mb-4 to mb-3 -->
+                        <div class="d-flex justify-content-between align-items-center mb-3 p-3 rounded-4" style="background: rgba(0,0,0,0.03);">
                             <div>
                                 <h6 class="fw-bold mb-0" style="color: var(--text-color);">Dark Mode 🌙</h6>
                                 <small class="text-muted">Switch to a cozy night theme</small>
@@ -60,17 +69,19 @@
                             </div>
                         </div>
 
-                        <div class="d-flex justify-content-between align-items-center mb-4 p-3 rounded-4" style="background: rgba(0,0,0,0.03);">
+                        <!-- Reduced mb-4 to mb-3 -->
+                        <div class="d-flex justify-content-between align-items-center mb-3 p-3 rounded-4" style="background: rgba(0,0,0,0.03);">
                             <div>
                                 <h6 class="fw-bold mb-0" style="color: var(--text-color);">Notifications 🔔</h6>
                                 <small class="text-muted">Get updates on new magical content</small>
                             </div>
                             <div class="form-check form-switch">
-                                <input class="form-check-input cute-switch" type="checkbox" checked>
+                                <input class="form-check-input cute-switch" type="checkbox" checked="">
                             </div>
                         </div>
 
-                        <div class="d-flex justify-content-end gap-3 mt-5">
+                        <!-- Reduced mt-5 to mt-4 -->
+                        <div class="d-flex justify-content-end gap-3 mt-4">
                             <button type="button" class="btn btn-light rounded-pill px-4 fw-bold text-muted">Cancel</button>
                             <button type="button" class="btn btn-cute px-5 shadow-sm">Save Changes</button>
                         </div>
