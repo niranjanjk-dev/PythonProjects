@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}About Us ☁️{% endblock %}
+{% block title %}About Me ☁️{% endblock %}
 
 {% block content %}
 <div class="about-container position-relative">
@@ -9,53 +9,52 @@
         <h1 class="fw-bold display-4 animate__animated animate__fadeInDown" style="color: var(--accent-color);">
             Behind the Magic ✨
         </h1>
-        <p class="lead text-muted animate__animated animate__fadeInUp animate__delay-0.5s">
+        <p class="lead animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
             We believe in pink skies, warm coffee, and coding with love.
         </p>
     </div>
 
     <div class="row justify-content-center mb-5">
         <div class="col-lg-10">
-            <div class="about-glass-card p-5 animate__animated animate__fadeInUp animate__delay-1s">
+            <div class="about-glass-card p-5 animate__animated animate__fadeInUp" style="animation-delay: 1s;">
                 <div class="row align-items-center">
                     <div class="col-md-6 mb-4 mb-md-0 text-center">
-                        <img src="https://picsum.photos/id/356/400/400" alt="Our Story" class="img-fluid rounded-circle shadow-lg border-white-thick about-img">
+                        <img src="https://picsum.photos/seed/aboutstory/400/400" alt="My Story" class="img-fluid rounded-circle shadow-lg about-img">
                     </div>
                     <div class="col-md-6">
                         <h3 class="fw-bold mb-3" style="color: #ff9a9e;">Our Little Story 📖</h3>
-                        <p class="text-muted">
+                        <p class="text-lavender-soft">
                             Once upon a time, we decided that technology was a bit too gray and boring. So, we grabbed our paintbrushes (and keyboards!) and decided to build a world that feels like a warm hug.
                         </p>
-                        <p class="text-muted">
+                        <p class="text-lavender-soft">
                             Our mission is simple: <b>To make the internet a cuter place.</b> Whether you are here to share a photo or just enjoy the view, we are happy to have you in our little corner of the web.
                         </p>
-                        <img src="https://fontmeme.com/permalink/231115/signature.png" alt="signature" style="height: 40px; opacity: 0.6;" class="mt-3">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row g-4 text-center mb-5 animate__animated animate__fadeInUp animate__delay-1.5s">
+    <div class="row g-4 text-center mb-5 animate__animated animate__fadeInUp" style="animation-delay: 1.5s;">
         <div class="col-md-4">
             <div class="stat-box">
-                <i class="fa-solid fa-mug-hot stat-icon text-warning"></i>
-                <h2 class="fw-bold mt-2 counter">150+</h2>
-                <p class="small text-muted">Coffees Sipped</p>
+                <i class="fa-solid fa-heart stat-icon text-danger"></i>
+                <h2 class="fw-bold mt-2 counter">1.2k+</h2>
+                <p class="small text-lavender-soft">Likes Received</p>
             </div>
         </div>
         <div class="col-md-4">
             <div class="stat-box">
-                <i class="fa-solid fa-heart stat-icon text-danger"></i>
-                <h2 class="fw-bold mt-2 counter">99%</h2>
-                <p class="small text-muted">Love & Passion</p>
+                <i class="fa-solid fa-eye stat-icon text-info"></i>
+                <h2 class="fw-bold mt-2 counter">8k+</h2>
+                <p class="small text-lavender-soft">Profile Views</p>
             </div>
         </div>
         <div class="col-md-4">
             <div class="stat-box">
                 <i class="fa-solid fa-code stat-icon text-primary"></i>
                 <h2 class="fw-bold mt-2 counter">10k</h2>
-                <p class="small text-muted">Lines of Cute Code</p>
+                <p class="small text-lavender-soft">Lines of Cute Code</p>
             </div>
         </div>
     </div>
@@ -64,14 +63,14 @@
         <h2 class="fw-bold mb-5" style="color: var(--accent-color);">Meet the Dreamer 🌙</h2>
         
         <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-2s">
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn" style="animation-delay: 2s;">
                 <div class="team-card">
                     <div class="team-img-wrapper">
-                        <img src="https://picsum.photos/id/64/300/300" class="team-img" alt="Team Member">
+                        <img src="https://picsum.photos/seed/aboutprofile/300/300" class="team-img" alt="Team Member">
                     </div>
-                    <h4 class="fw-bold mt-4" style="color: #555;">Niranjan JK</h4>
-                    <span class="badge rounded-pill bg-light text-dark border mb-3">Lead Wizard 🧙‍♂️</span>
-                    <p class="text-muted small px-3">
+                    <h4 class="fw-bold mt-4">Niranjan JK</h4>
+                    <span class="cute-badge mb-3">Lead Wizard 🧙‍♂️</span>
+                    <p class="small px-3 text-lavender-soft">
                         "I write code that smiles back at you. Lover of robotics, Python, and starry nights."
                     </p>
                     <div class="team-socials">
@@ -83,10 +82,6 @@
             </div>
         </div>
     </div>
-
-    <i class="fa-solid fa-cloud hero-float float-slow" style="top: 5%; left: 5%; font-size: 80px; color: white; opacity: 0.5;"></i>
-    <i class="fa-solid fa-star hero-float float-fast" style="top: 20%; right: 10%; font-size: 40px; color: #ffd700;"></i>
-    <i class="fa-solid fa-heart hero-float float-medium" style="bottom: 10%; left: 15%; font-size: 50px; color: #ff9a9e;"></i>
 
 </div>
 {% endblock %}

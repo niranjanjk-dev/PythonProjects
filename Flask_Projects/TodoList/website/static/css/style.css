@@ -133,7 +133,7 @@ body:has(.toggle-option:hover) .cursor-dot {
     padding: 40px;
     border: 1px solid rgba(255, 255, 255, 0.6);
     box-shadow: 0 8px 32px 0 rgba(106, 17, 203, 0.1); 
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     animation: fadeIn 1s ease-in-out;
     /* EDITED: Added z-index */
     position: relative;
@@ -254,7 +254,7 @@ body:has(.toggle-option:hover) .cursor-dot {
 }
 .cute-input {
     border-radius: 30px !important;
-    background: #fff9fa;
+    background: #ffffff;
     border: 2px solid #f8cdda;
     padding: 15px 25px;
     font-size: 1.1rem;
@@ -828,3 +828,204 @@ body.dark-theme .scroll-dot {
 body.dark-theme .scroll-dot.active {
     background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
 }
+
+/* =========================================
+   ABOUT PAGE STYLES (ADD TO BOTTOM OF CSS)
+   ========================================= */
+
+/* 1. Main Story Card */
+.about-glass-card {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(15px);
+    border-radius: 40px;
+    border: 2px solid white;
+    box-shadow: 0 10px 30px rgba(106, 17, 203, 0.05);
+    transition: transform 0.3s ease;
+}
+.about-glass-card:hover { transform: translateY(-5px); }
+
+/* FIX: Removed border and shadow from story image */
+.border-white-thick {
+    border: none !important; 
+    box-shadow: none !important; 
+}
+.about-img { transition: transform 0.5s ease; }
+.about-img:hover { transform: rotate(5deg) scale(1.05); }
+
+/* 2. Stat Boxes */
+.stat-box {
+    background: white;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.1);
+    border: 2px solid #ffebee;
+    transition: all 0.3s ease;
+}
+.stat-box:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+    box-shadow: 0 15px 25px rgba(255, 154, 158, 0.2);
+}
+.stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    animation: bounce 2s infinite;
+}
+
+/* 3. Team/Creator Card */
+.team-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    /* FIX: Rounded borders */
+    border-radius: 40px; 
+    padding: 40px 20px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid white;
+}
+.team-card:hover {
+    transform: translateY(-15px);
+    background: white;
+    box-shadow: 0 20px 40px rgba(106, 17, 203, 0.1);
+}
+
+/* FIX: Removed pink ring/gradient from profile picture wrapper */
+.team-img-wrapper {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border-radius: 50%;
+    padding: 5px;
+    background: none !important; /* Removed gradient */
+    box-shadow: none !important; /* Removed shadow */
+}
+.team-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    /* Optional: Thin white border for separation */
+    border: 4px solid white; 
+}
+
+/* 4. Social Icons */
+.team-socials { margin-top: 20px; }
+.team-socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f0e6ff; /* Lavender */
+    color: #8e44ad;
+    margin: 0 5px;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+.team-socials a:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.1) rotate(360deg);
+}
+
+/* 5. Custom Text Colors (No Grey) */
+.text-lavender-soft {
+    color: #9575cd;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+.cute-badge {
+    display: inline-block;
+    padding: 0.5em 1em;
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 50px;
+    background-color: #f0e6ff;
+    color: #8e44ad;
+    border: 1px solid #d1c4e9;
+}
+
+/* 6. Animations for About Page */
+.animate__animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translate3d(0, 40px, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+.animate__fadeInUp { animation-name: fadeInUp; }
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translate3d(0, -40px, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+.animate__fadeInDown { animation-name: fadeInDown; }
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale3d(0.3, 0.3, 0.3); }
+    50% { opacity: 1; }
+}
+.animate__zoomIn { animation-name: zoomIn; }
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+
+/* 7. ABOUT PAGE DARK MODE OVERRIDES */
+body.dark-theme .about-glass-card {
+    background: rgba(40, 30, 60, 0.75);
+    border: 1px solid rgba(255, 200, 255, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    color: #ffe6ea;
+}
+
+body.dark-theme .stat-box {
+    background: rgba(40, 30, 60, 0.9);
+    border-color: rgba(255, 200, 255, 0.15);
+    box-shadow: none;
+}
+body.dark-theme .stat-box h2 { color: #fff !important; }
+
+body.dark-theme .team-card {
+    background: rgba(40, 30, 60, 0.8);
+    border-color: rgba(255, 200, 255, 0.1);
+}
+body.dark-theme .team-card h4 { color: #fff !important; }
+
+/* Ensure profile pic has no weird background/shadow in dark mode */
+body.dark-theme .team-img-wrapper {
+    background: none !important;
+    box-shadow: none !important;
+}
+body.dark-theme .team-img {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-theme .text-lavender-soft {
+    color: #dcd0ff;
+}
+
+body.dark-theme .cute-badge {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffe6ea;
+    border-color: rgba(255, 200, 255, 0.3);
+}
+
+body.dark-theme .team-socials a {
+    background: rgba(255, 255, 255, 0.1);
+    color: #dcd0ff;
+}
+body.dark-theme .team-socials a:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+

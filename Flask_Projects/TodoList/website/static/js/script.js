@@ -280,3 +280,5 @@ function scrollPage(direction) {
    Its logic was moved into the listener in Section 3
    to fix the bug.
 */
+
+
