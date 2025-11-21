@@ -1028,4 +1028,98 @@ body.dark-theme .team-socials a:hover {
     color: white;
 }
 
+/* =========================================
+   15. CUTE FLASH MESSAGES (FLOATING PILL)
+   ========================================= */
+
+.cute-alert {
+    /* 1. FLOAT IT (Prevents page expansion) */
+    position: absolute; 
+    top: 20px;          /* Space from top of the card */
+    left: 50%;
+    transform: translateX(-50%); /* Center perfectly */
+    width: 85%;         /* Width relative to the card */
+    z-index: 999;       /* Ensure it sits on top of everything */
+    
+    /* 2. CUTE SHAPE */
+    border-radius: 50px; /* Pill shape */
+    border: none;
+    padding: 12px 45px 12px 25px; /* Extra right padding for close button */
+    margin: 0;          /* Remove margins that cause shifting */
+    
+    /* 3. TEXT STYLING */
+    font-weight: 800;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center text */
+    text-align: center;
+    
+    /* 4. SHADOW & ANIMATION */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Soft floaty shadow */
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy entrance */
+}
+
+/* Position the close button inside the pill */
+.cute-alert .btn-close {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0;
+    margin: 0;
+    font-size: 0.8rem;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+.cute-alert .btn-close:hover { opacity: 1; }
+
+/* Bouncy Entrance Animation */
+@keyframes popIn {
+    0% { opacity: 0; transform: translate(-50%, -20px) scale(0.9); }
+    100% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+}
+
+/* --- COLORS (Keep existing color logic) --- */
+/* Light Mode Colors */
+.alert-success {
+    background-color: #d4edda; /* Soft Mint */
+    color: #155724;
+    border-left: none; /* Remove side border for pill look */
+}
+
+.alert-danger, .alert-error {
+    background-color: #f8d7da; /* Soft Pink/Red */
+    color: #721c24;
+    border-left: none;
+}
+
+.alert-info {
+    background-color: #cce5ff; /* Soft Blue */
+    color: #004085;
+    border-left: none;
+}
+
+/* Dark Mode Overrides */
+body.dark-theme .alert-success {
+    background-color: rgba(40, 167, 69, 0.9); /* More opaque for readability */
+    color: #fff;
+}
+
+body.dark-theme .alert-danger, 
+body.dark-theme .alert-error {
+    background-color: rgba(220, 53, 69, 0.9);
+    color: #fff;
+}
+
+body.dark-theme .alert-info {
+    background-color: rgba(13, 110, 253, 0.9);
+    color: #fff;
+}
+
+/* Fix Close Button in Dark Mode */
+body.dark-theme .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
 

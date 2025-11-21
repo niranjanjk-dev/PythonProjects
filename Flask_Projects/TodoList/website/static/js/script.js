@@ -294,3 +294,13 @@ function scrollPage(direction) {
             setTimeout(() => alert.remove(), 500); 
         });
     }, 4000); // 4000ms = 4 seconds delay before fading starts
+
+
+// --- ✨ PREVENT FORM RESUBMISSION ON REFRESH (Auth Page Only) ✨ ---
+// We check if the 'login-form' OR 'register-form' element exists to confirm we are on the Auth page
+if (document.getElementById("login-form") || document.getElementById("register-form")) {
+    // This stops the browser from asking to resubmit the form when you hit F5
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+}
