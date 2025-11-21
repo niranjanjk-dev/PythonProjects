@@ -281,4 +281,16 @@ function scrollPage(direction) {
    to fix the bug.
 */
 
-
+// --- ✨ FLASH MESSAGE AUTO-DISMISS ✨ ---
+    // Automatically fades out alerts after 4 seconds
+    setTimeout(function() {
+        const alerts = document.querySelectorAll('.alert');
+        alerts.forEach(function(alert) {
+            // 1. Start the fade out transition
+            alert.style.transition = "opacity 0.5s ease";
+            alert.style.opacity = "0";
+            
+            // 2. Completely remove the element from the HTML after the fade finishes (0.5s)
+            setTimeout(() => alert.remove(), 500); 
+        });
+    }, 4000); // 4000ms = 4 seconds delay before fading starts
