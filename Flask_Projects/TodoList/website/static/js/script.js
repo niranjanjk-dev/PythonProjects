@@ -304,3 +304,19 @@ if (document.getElementById("login-form") || document.getElementById("register-f
         window.history.replaceState(null, null, window.location.href);
     }
 }
+
+
+// --- AUTH TOGGLE (Smart State) ---
+    // This checks the URL to decide which form to show on page load
+    if(toggleOptions.length > 0 && z){
+        
+        // 1. Check if the URL contains 'sign-up'
+        if (window.location.pathname.includes("sign-up")) {
+            // If yes, switch to the Register/Sign Up view automatically
+            register(); 
+        } 
+        // 2. Otherwise, default to the Login view
+        else {
+            login(); 
+        }
+    }
