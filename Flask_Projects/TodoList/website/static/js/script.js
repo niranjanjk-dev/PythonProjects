@@ -18,29 +18,68 @@ window.addEventListener("mousemove", function (e) {
 
 
 /* =========================================
-   2. AUTH PAGE TOGGLE LOGIC
+   2. AUTH PAGE TOGGLE LOGIC (With Memory!)
    ========================================= */
-const x = document.getElementById("login-form");
-const y = document.getElementById("register-form");
-const z = document.getElementById("btn");
-const toggleOptions = document.querySelectorAll('.toggle-option');
 
+// 1. Define the switching functions globally so buttons can call them
 function register() {
-    if (x && y && z && toggleOptions.length > 0) {
+    const x = document.getElementById("login-form");
+    const y = document.getElementById("register-form");
+    const z = document.getElementById("btn");
+    const toggleOptions = document.querySelectorAll('.toggle-option');
+
+    if (x && y && z && toggleOptions.length >= 2) {
         x.style.display = "none";
         y.style.display = "block";
-        z.style.left = "150px"; 
+        z.style.left = "150px"; // Slide pill to right
+        
+        // Update text colors
+        toggleOptions[0].style.color = "#888"; 
+        toggleOptions[1].style.color = "white"; 
+        
+        // ✨ SAVE CHOICE: Remember user wants "Sign Up"
+        localStorage.setItem('authTab', 'register');
     }
 }
 
 function login() {
-    if (x && y && z && toggleOptions.length > 0) {
+    const x = document.getElementById("login-form");
+    const y = document.getElementById("register-form");
+    const z = document.getElementById("btn");
+    const toggleOptions = document.querySelectorAll('.toggle-option');
+
+    if (x && y && z && toggleOptions.length >= 2) {
         x.style.display = "block";
         y.style.display = "none";
-        z.style.left = "5px"; 
+        z.style.left = "5px"; // Slide pill to left
+        
+        // Update text colors
+        toggleOptions[0].style.color = "white"; 
+        toggleOptions[1].style.color = "#888"; 
+        
+        // ✨ SAVE CHOICE: Remember user wants "Login"
+        localStorage.setItem('authTab', 'login');
     }
 }
 
+// 2. Restore the state when the page finishes loading
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // Check if we are on the Auth page
+    const loginForm = document.getElementById("login-form");
+    const registerForm = document.getElementById("register-form");
+
+    if (loginForm && registerForm) {
+        // Check what the user last selected
+        const savedTab = localStorage.getItem('authTab');
+        
+        if (savedTab === 'register') {
+            register(); // Immediately switch to Register view
+        } else {
+            login();    // Default to Login
+        }
+    }
+});
 /* =========================================
    3. DARK MODE & ALL OTHER INITIALIZERS
    ========================================= */
@@ -305,18 +344,66 @@ if (document.getElementById("login-form") || document.getElementById("register-f
     }
 }
 
+/* =========================================
+   AUTH PAGE TOGGLE LOGIC (With Memory!)
+   ========================================= */
 
-// --- AUTH TOGGLE (Smart State) ---
-    // This checks the URL to decide which form to show on page load
-    if(toggleOptions.length > 0 && z){
+// 1. Define the switching functions globally so buttons can call them
+function register() {
+    const x = document.getElementById("login-form");
+    const y = document.getElementById("register-form");
+    const z = document.getElementById("btn");
+    const toggleOptions = document.querySelectorAll('.toggle-option');
+
+    if (x && y && z && toggleOptions.length >= 2) {
+        x.style.display = "none";
+        y.style.display = "block";
+        z.style.left = "150px"; // Slide pill to right
         
-        // 1. Check if the URL contains 'sign-up'
-        if (window.location.pathname.includes("sign-up")) {
-            // If yes, switch to the Register/Sign Up view automatically
-            register(); 
-        } 
-        // 2. Otherwise, default to the Login view
-        else {
-            login(); 
+        // Update text colors
+        toggleOptions[0].style.color = "#888"; 
+        toggleOptions[1].style.color = "white"; 
+        
+        // ✨ SAVE CHOICE TO BROWSER MEMORY ✨
+        localStorage.setItem('authTab', 'register');
+    }
+}
+
+function login() {
+    const x = document.getElementById("login-form");
+    const y = document.getElementById("register-form");
+    const z = document.getElementById("btn");
+    const toggleOptions = document.querySelectorAll('.toggle-option');
+
+    if (x && y && z && toggleOptions.length >= 2) {
+        x.style.display = "block";
+        y.style.display = "none";
+        z.style.left = "5px"; // Slide pill to left
+        
+        // Update text colors
+        toggleOptions[0].style.color = "white"; 
+        toggleOptions[1].style.color = "#888"; 
+        
+        // ✨ SAVE CHOICE TO BROWSER MEMORY ✨
+        localStorage.setItem('authTab', 'login');
+    }
+}
+
+// 2. Restore the state when the page finishes loading
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // Check if we are on the Auth page
+    const loginForm = document.getElementById("login-form");
+    const registerForm = document.getElementById("register-form");
+
+    if (loginForm && registerForm) {
+        // Check what the user last selected
+        const savedTab = localStorage.getItem('authTab');
+        
+        if (savedTab === 'register') {
+            register(); // Immediately switch to Register view
+        } else {
+            login();    // Default to Login
         }
     }
+});
