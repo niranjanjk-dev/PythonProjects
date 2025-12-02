@@ -30,11 +30,15 @@
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/yourusername/dot-connector.git](https://github.com/yourusername/dot-connector.git)
-   cd dot-connector
+   git clone [https://github.com/niranjanjk-dev/PythonProjects.git](https://github.com/niranjanjk-dev/PythonProjects.git)
    ```
 
-2. **Install dependencies:**
+2. **Navigate to the project directory:**
+   ```bash
+   cd PythonProjects/OpenCV_Projects/HandGestureControl
+   ```
+
+3. **Install dependencies:**
    It is recommended to use a virtual environment.
    ```bash
    pip install opencv-python mediapipe numpy
